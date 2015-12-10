@@ -38,9 +38,9 @@ function _determineLinkType (link) {
 
   if (link.match(/(gif|jpe?g|png)$/)) return 'image';
 
-  if (link.match(/^https?:\/\/(www\.)?youtu(\.be|be\.com)/)) return 'YouTube';
+  if (link.match(/^https?:\/\/(www\.)?youtu(\.be|be\.com)/)) return 'youtube';
 
-  if (link.match(/^https?:\/\/(www\.)?vimeo.com/)) return 'Vimeo';
+  if (link.match(/^https?:\/\/(www\.)?vimeo.com/)) return 'vimeo';
 
   return 'article';
 }

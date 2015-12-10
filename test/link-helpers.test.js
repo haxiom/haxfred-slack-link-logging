@@ -97,7 +97,7 @@ describe('Link Helpers', () => {
         });
       });
 
-      it('returns YouTube for youtube link', () => {
+      it('returns youtube for youtube link', () => {
         let youtubeUrls = [
           '<https://www.youtube.com/something/booo/bar>',
           '<http://www.youtube.com/something/booo/bar>',
@@ -110,11 +110,11 @@ describe('Link Helpers', () => {
         each(youtubeUrls, (url) => {
           let type = parseLink(url).type;
 
-          expect(type).to.eql('YouTube');
+          expect(type).to.eql('youtube');
         });
       });
 
-      it('returns Vimeo for vimeo link', () => {
+      it('returns vimeo for vimeo link', () => {
         let youtubeUrls = [
           '<https://vimeo.com/foo/bar>',
           '<http://vimeo.com/foo/bar>',
@@ -123,7 +123,7 @@ describe('Link Helpers', () => {
         each(youtubeUrls, (url) => {
           let type = parseLink(url).type;
 
-          expect(type).to.eql('Vimeo');
+          expect(type).to.eql('vimeo');
         });
       });
 
