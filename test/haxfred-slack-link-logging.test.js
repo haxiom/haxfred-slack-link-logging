@@ -13,7 +13,7 @@ describe('linkLogging', () => {
     haxfred = {
       config: {
         linkLogging: {
-          endpoint: 'http://localhost:3000/api/link',
+          endpoint: 'http://localhost:3000',
         },
       },
       on: sinon.stub(),
@@ -96,7 +96,7 @@ describe('linkLogging', () => {
 
     expect(benecioHelpers.post).to.be.calledOnce;
     expect(benecioHelpers.post).to.be.calledWith(
-      haxfred.config.linkLogging.endpoint,
+      `${haxfred.config.linkLogging.endpoint}/api/links`,
       sinon.match({
         user: 'someUser',
         url: 'http://google.com',
@@ -127,7 +127,7 @@ describe('linkLogging', () => {
     linkLogging(haxfred);
 
     expect(channel.send).to.be.calledOnce;
-    expect(channel.send).to.be.calledWith(`Your link was logged to ${haxfred.config.linkLogging.endpoint}?id=1`);
+    expect(channel.send).to.be.calledWith(`Your link was logged to ${haxfred.config.linkLogging.endpoint}/api/links?id=1`);
   });
 
   it('resolves promise when posts', () => {

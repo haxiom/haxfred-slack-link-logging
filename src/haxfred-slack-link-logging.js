@@ -8,6 +8,8 @@ export default function haxfredSlackLinkLogging (haxfred) {
 
   if (!linkLoggingConfig.endpoint) return console.error('haxfred-slack-link-logging requires you to configure linkLogging.endpoint'); // eslint-disable-line no-console
 
+  const API_ENDPOINT = `${linkLoggingConfig.endpoint}/api/links`;
+
   haxfred.on('slack.message', '', (data, deferred) => {
     let message = data.text;
     let sender = data.user;
@@ -24,7 +26,7 @@ export default function haxfredSlackLinkLogging (haxfred) {
         postDate: new Date(),
       };
 
-      post(linkLoggingConfig.endpoint, details, (err, result) => {
+      post(API_ENDPOINT, details, (err, result) => {
         if (err) {
           channel.send(`Something went wrong :cry: \n\n: ${err}`);
           return deferred.reject();
@@ -32,7 +34,7 @@ export default function haxfredSlackLinkLogging (haxfred) {
 
         let id = result.body.id;
 
-        channel.send(`Your link was logged to ${linkLoggingConfig.endpoint}?id=${id}`);
+        channel.send(`Your link was logged to ${API_ENDPOINT}?id=${id}`);
 
         deferred.resolve();
       });

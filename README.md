@@ -8,7 +8,7 @@ The only required parameter is the [benicio](https://github.com/haxiom/benicio) 
 ```json
 {
   "linkLogging": {
-    "endpoint": "localhost:3000/api/links"
+    "endpoint": "localhost:3000"
   }
 }
 ```
@@ -19,7 +19,7 @@ You can also pass in an array of domains to blacklist from being logged.
 ```json
 {
   "linkLogging": {
-    "endpoint": "localhost:3000/api/links",
+    "endpoint": "localhost:3000",
     "blacklist": [
       "gist.github.com",
       "someotherdomain.com"
