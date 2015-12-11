@@ -1,5 +1,5 @@
 --colors
 --reporter spec
 --check-leaks
---compilers js:babel-core/register
+--compilers js:babel-register
 --require ./test/helpers/globals.helper
