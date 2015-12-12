@@ -1,12 +1,12 @@
 /* eslint-disable no-undef, no-shadow */
-//------------------------------
+// ------------------------------
 // Global modules
-//------------------------------
+// ------------------------------
 
-import chai from 'chai';
-import sinon from 'sinon';
+import chai from 'chai'
+import sinon from 'sinon'
 
-chai.use(require('sinon-chai'));
+chai.use(require('sinon-chai'))
 
-global.sinon = sinon;
-global.expect = chai.expect;
+global.sinon = sinon
+global.expect = chai.expect
