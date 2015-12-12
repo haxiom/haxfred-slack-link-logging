@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import linkLogging from '../src/haxfred-slack-link-logging.js'
 import * as benecioHelpers from '../src/benicio-helpers.js'
 import * as linkHelpers from '../src/link-helpers.js'

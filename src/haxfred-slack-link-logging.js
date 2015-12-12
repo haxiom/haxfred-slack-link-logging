@@ -2,11 +2,11 @@ import { parseLink } from './link-helpers'
 import { post } from './benicio-helpers'
 
 export default function haxfredSlackLinkLogging (haxfred) {
-  if (!haxfred.slack) return console.error('haxfred-slack-link-logging requires haxfred-slack') // eslint-disable-line no-console
+  if (!haxfred.slack) return console.error('haxfred-slack-link-logging requires haxfred-slack')
 
   let linkLoggingConfig = haxfred.config.linkLogging || {}
 
-  if (!linkLoggingConfig.endpoint) return console.error('haxfred-slack-link-logging requires you to configure linkLogging.endpoint') // eslint-disable-line no-console
+  if (!linkLoggingConfig.endpoint) return console.error('haxfred-slack-link-logging requires you to configure linkLogging.endpoint')
 
   const API_ENDPOINT = `${linkLoggingConfig.endpoint}/api/links`
 
