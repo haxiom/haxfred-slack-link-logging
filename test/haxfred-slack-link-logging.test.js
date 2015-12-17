@@ -17,7 +17,8 @@ describe('linkLogging', () => {
       },
       on: sinon.stub(),
       slack: {
-        getChannelGroupOrDMByID: sinon.stub().returns(channel)
+        getChannelGroupOrDMByID: sinon.stub().returns(channel),
+        getUserByID: sinon.stub().returns({ name: 'someUser' })
       }
     }
 
@@ -60,7 +61,7 @@ describe('linkLogging', () => {
   it('resolves if no link is contained in slack message', () => {
     let data = {
       text: 'some message',
-      user: 'someUser'
+      user: '@userId'
     }
     let promiseStub = {
       resolve: sinon.stub(),
@@ -82,7 +83,7 @@ describe('linkLogging', () => {
     })
     let data = {
       text: 'some message http://google.com some message',
-      user: 'someUser'
+      user: '@userId'
     }
     let promiseStub = {
       resolve: sinon.stub(),
@@ -114,7 +115,7 @@ describe('linkLogging', () => {
     benecioHelpers.post.yields(null, { body: { id: '1' } })
     let data = {
       text: 'some message http://google.com some message',
-      user: 'someUser'
+      user: '@userId'
     }
     let promiseStub = {
       resolve: sinon.stub(),
@@ -138,7 +139,7 @@ describe('linkLogging', () => {
     benecioHelpers.post.yields(null, { body: { id: '1' } })
     let data = {
       text: 'some message http://google.com some message',
-      user: 'someUser'
+      user: '@userId'
     }
     let promiseStub = {
       resolve: sinon.stub(),
@@ -161,7 +162,7 @@ describe('linkLogging', () => {
     })
     let data = {
       text: 'some message http://google.com some message',
-      user: 'someUser'
+      user: '@userId'
     }
     let promiseStub = {
       resolve: sinon.stub(),
@@ -185,7 +186,7 @@ describe('linkLogging', () => {
     })
     let data = {
       text: 'some message http://google.com some message',
-      user: 'someUser'
+      user: '@userId'
     }
     let promiseStub = {
       resolve: sinon.stub(),

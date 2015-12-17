@@ -18,8 +18,10 @@ export default function haxfredSlackLinkLogging (haxfred) {
 
     if (linkDetails) {
       let channel = haxfred.slack.getChannelGroupOrDMByID(data.channel)
+      let user = haxfred.slack.getUserByID(sender)
+
       let details = {
-        user: sender,
+        user: user.name,
         url: linkDetails.link,
         caption: linkDetails.comment,
         type: linkDetails.type,
