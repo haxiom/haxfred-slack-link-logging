@@ -106,6 +106,14 @@ describe('linkLogging', () => {
     )
   })
 
+  it('adds endpoint to haxfred blacklist automatically', () => {
+    haxfred.config.linkLogging.blacklist = ['http://somedomain.com']
+
+    linkLogging(haxfred)
+
+    expect(haxfred.config.linkLogging.blacklist).to.include('http://localhost:3000')
+  })
+
   it('sends a confirmation message to slack', () => {
     linkHelpers.parseLink.returns({
       link: 'http://google.com',
