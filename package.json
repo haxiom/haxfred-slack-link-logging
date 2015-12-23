@@ -1,6 +1,6 @@
 {
   "name": "haxfred-slack-link-logging",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Link logging module for haxfred and slack",
   "repository": {
     "url": "https://github.com/haxiom/haxfred-slack-link-logging"
