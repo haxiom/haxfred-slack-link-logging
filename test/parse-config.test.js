@@ -1,10 +1,6 @@
 import parseConfig from '../src/parse-config.js'
 
 describe('#parseConfig', () => {
-  it('returns an empty object if no linkingLogging field is specified', () => {
-    expect(parseConfig({foo: 'bar'})).to.eql({})
-  })
-
   it('returns an object with specified endpoint', () => {
     let config = {
       linkLogging: {
