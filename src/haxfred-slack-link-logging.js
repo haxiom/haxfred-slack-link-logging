@@ -3,11 +3,7 @@ import { post } from './benicio-helpers'
 import parseConfig from './parse-config'
 
 export default function haxfredSlackLinkLogging (haxfred) {
-  if (!haxfred.slack) return console.error('haxfred-slack-link-logging requires haxfred-slack')
-
   let linkLoggingConfig = parseConfig(haxfred.config)
-
-  if (!linkLoggingConfig.endpoint) return console.error('haxfred-slack-link-logging requires you to configure linkLogging.endpoint')
 
   const API_ENDPOINT = `${linkLoggingConfig.endpoint}/api/links`
 
@@ -45,6 +41,11 @@ export default function haxfredSlackLinkLogging (haxfred) {
       deferred.resolve()
     }
   })
+}
+
+haxfredSlackLinkLogging.requires = {
+  adapters: ['haxfred-slack'],
+  config: ['linkLogging.endpoint']
 }
 
 module.exports = haxfredSlackLinkLogging

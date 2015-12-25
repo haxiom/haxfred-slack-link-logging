@@ -1,12 +1,8 @@
 function parseConfig (config = {}) {
-  let { linkLogging } = config
-
-  if (!linkLogging) return {}
-
   let {
     blacklist = [],
     endpoint
-  } = linkLogging
+  } = config.linkLogging
 
   blacklist.push(endpoint)
 

@@ -33,24 +33,6 @@ describe('linkLogging', () => {
     console.error.restore()
   })
 
-  it('errors if no slack object on config', () => {
-    delete haxfred.slack
-
-    linkLogging(haxfred)
-
-    expect(console.error).to.be.calledOnce
-    expect(console.error).to.be.calledWith('haxfred-slack-link-logging requires haxfred-slack')
-  })
-
-  it('errors if benicio endpoint is not specified', () => {
-    delete haxfred.config.linkLogging.endpoint
-
-    linkLogging(haxfred)
-
-    expect(console.error).to.be.calledOnce
-    expect(console.error).to.be.calledWith('haxfred-slack-link-logging requires you to configure linkLogging.endpoint')
-  })
-
   it('creates a listener for slack.message', () => {
     linkLogging(haxfred)
 
